@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmnukwlmo7gp2"]
+
+[ext_resource type="PackedScene" uid="uid://fmm8khn2rpi5" path="res://scenes/player/player.tscn" id="1_8e00y"]
+[ext_resource type="Texture2D" uid="uid://ck6m4tdo0sejc" path="res://assets/backgrounds/space.jpg" id="1_rqn6l"]
+
+[node name="main_level" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1479.0
+offset_bottom = 980.0
+texture = ExtResource("1_rqn6l")
+stretch_mode = 3
+
+[node name="Player" parent="." instance=ExtResource("1_8e00y")]
+position = Vector2(550, 318)
