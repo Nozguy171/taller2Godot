@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+class_name Player
 
 @export var movement_speed: float = 2000.0
 @export var rotation_speed: float = 50.0

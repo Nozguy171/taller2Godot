@@ -10,7 +10,7 @@ height = 44.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 13.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_8afob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

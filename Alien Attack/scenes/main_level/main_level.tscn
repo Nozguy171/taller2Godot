@@ -2,10 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://fmm8khn2rpi5" path="res://scenes/player/player.tscn" id="1_8e00y"]
 [ext_resource type="Texture2D" uid="uid://ck6m4tdo0sejc" path="res://assets/backgrounds/space.jpg" id="1_rqn6l"]
-[ext_resource type="PackedScene" uid="uid://b1lb26llqax1v" path="res://scenes/objects/player_bullet.tscn" id="3_48npw"]
+[ext_resource type="PackedScene" uid="uid://dr6cgr8s2eri0" path="res://scenes/enemy/enemy.tscn" id="3_48npw"]
 
 [node name="main_level" type="Node2D"]
-position = Vector2(13, 4)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1479.0
@@ -16,5 +15,5 @@ stretch_mode = 3
 [node name="Player" parent="." instance=ExtResource("1_8e00y")]
 position = Vector2(641, 316)
 
-[node name="PlayerBullet" parent="." instance=ExtResource("3_48npw")]
-position = Vector2(632, 285)
+[node name="Enemy" parent="." instance=ExtResource("3_48npw")]
+position = Vector2(487, 252)
