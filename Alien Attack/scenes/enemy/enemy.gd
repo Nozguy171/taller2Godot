@@ -7,3 +7,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	look_at(player.global_position)
+
+func _on_damage_received(area: Area2D) -> void:
+	print("Damaged!")
+	queue_free()
