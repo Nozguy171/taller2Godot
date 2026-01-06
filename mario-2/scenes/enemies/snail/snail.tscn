@@ -142,8 +142,10 @@ script = ExtResource("1_urb42")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tc05l")
-animation = &"walk"
+animation = &"destroy"
 autoplay = "walk"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 19)

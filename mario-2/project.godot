@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SoundsManager="*res://singletons/SoundsManager.gd"
+SignalManager="*res://singletons/SignalManager.gd"
+GameManager="*res://singletons/GameManager.gd"
 
 [input]
 

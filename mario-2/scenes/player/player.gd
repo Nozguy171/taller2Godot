@@ -86,6 +86,7 @@ func set_state(new_state: PLAYER_STATES):
 	
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	apply_hit()
+	SignalManager.on_hurt.emit()
 	
 func apply_hit(): 
 	velocity.x = 0 
@@ -97,10 +98,10 @@ func apply_hit():
 	tween.tween_property(sprite, "self_modulate",Color(1,0,0,0.5),0.5)
 	tween.tween_property(sprite, "self_modulate",Color(1,1,1,1),0.5)
 
-
-
-
 func _on_invincible_timeout() -> void:
-	print("Controlr ecuperado")
+	print("Control recuperado")
 	set_state(PLAYER_STATES.IDLE)
 	velocity.y = 0
+
+func _on_jump_hitbox_area_entered(area: Area2D) -> void:
+	velocity.y = HURT_JUMP_SPEED * 5

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnyrmc76fueor"]
+[gd_scene load_steps=7 format=3 uid="uid://bnyrmc76fueor"]
 
 [ext_resource type="PackedScene" uid="uid://27m58xn3rwh3" path="res://scenes/player/player.tscn" id="1_alwyk"]
 [ext_resource type="PackedScene" uid="uid://k8n06vjidsi5" path="res://scenes/enemies/snail/snail.tscn" id="2_62xr1"]
+[ext_resource type="PackedScene" uid="uid://cebi34elwpbud" path="res://scenes/hud/hud.tscn" id="3_vxsof"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_alwyk"]
 
@@ -33,3 +34,16 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(363, 543)
 shape = SubResource("RectangleShape2D_vxsof")
+
+[node name="Snail2" parent="." instance=ExtResource("2_62xr1")]
+position = Vector2(463, 479)
+
+[node name="Snail3" parent="." instance=ExtResource("2_62xr1")]
+position = Vector2(568, 542)
+
+[node name="Hud" parent="." instance=ExtResource("3_vxsof")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
