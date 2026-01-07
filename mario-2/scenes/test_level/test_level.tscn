@@ -1,18 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnyrmc76fueor"]
+[gd_scene load_steps=9 format=3 uid="uid://bnyrmc76fueor"]
 
 [ext_resource type="PackedScene" uid="uid://27m58xn3rwh3" path="res://scenes/player/player.tscn" id="1_alwyk"]
 [ext_resource type="PackedScene" uid="uid://k8n06vjidsi5" path="res://scenes/enemies/snail/snail.tscn" id="2_62xr1"]
 [ext_resource type="PackedScene" uid="uid://cebi34elwpbud" path="res://scenes/hud/hud.tscn" id="3_vxsof"]
+[ext_resource type="PackedScene" uid="uid://i4ywmfo8msj8" path="res://scenes/player_camera/player_camera.tscn" id="4_yetkn"]
+[ext_resource type="PackedScene" uid="uid://b0v0g3xfmom2n" path="res://scenes/backgrounds/world1_1/background1_1.tscn" id="5_q0l7r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_alwyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62xr1"]
-size = Vector2(484.5, 20)
+size = Vector2(2808.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxsof"]
 size = Vector2(33, 80)
 
 [node name="TestLevel" type="Node2D"]
+
+[node name="Background1_1" parent="." instance=ExtResource("5_q0l7r")]
+position = Vector2(560, 315)
 
 [node name="Player" parent="." instance=ExtResource("1_alwyk")]
 position = Vector2(369, 101)
@@ -22,7 +27,7 @@ scale = Vector2(3, 3)
 physics_material_override = SubResource("PhysicsMaterial_alwyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(452.75, 615)
+position = Vector2(1614.75, 615)
 shape = SubResource("RectangleShape2D_62xr1")
 
 [node name="Snail" parent="." instance=ExtResource("2_62xr1")]
@@ -42,3 +47,6 @@ position = Vector2(463, 479)
 position = Vector2(568, 542)
 
 [node name="Hud" parent="." instance=ExtResource("3_vxsof")]
+
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_yetkn")]
+player = NodePath("../Player")
