@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwn7jsplsksf4"]
+
+[ext_resource type="Script" uid="uid://b2x5jpuwp1330" path="res://scenes/bloquePro/mistery_block.gd" id="1_rmjik"]
+[ext_resource type="Texture2D" uid="uid://80fxxah1gl0" path="res://assets/sprites/golden_block.png" id="2_4a4vm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62ttx"]
+size = Vector2(55, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15bi8"]
+size = Vector2(36, 3)
+
+[node name="MisteryBlock" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_rmjik")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_4a4vm")
+
+[node name="cock" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_62ttx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 22.5)
+shape = SubResource("RectangleShape2D_15bi8")
+debug_color = Color(0.9736431, 0, 0.43590814, 0.41960785)
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

@@ -4,18 +4,17 @@ class_name Player
 
 enum PLAYER_STATES {IDLE, JUMP, RUN, FALL, HURT}
 const MOVEMENT_SPEED: float = 160.0
-const JUMP_SPEED: float = -450.0
+const JUMP_SPEED: float = -650.0
 const GRAVITY: float = 1000.0
 const MAX_FALL_SPEED: float = GRAVITY * 3
 const HURT_JUMP_SPEED: float = -100.0
-
 var current_state: PLAYER_STATES = PLAYER_STATES.IDLE
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_player: AudioStreamPlayer2D = $AudioPlayer
 @onready var invincible_timer: Timer = $InvincibleTimer
 @onready var jump_hitbox_collision = $JumpHitbox/CollisionShape2D
-
+@onready var floorDetectio: RayCast2D = $FloorDetection
 func _ready() -> void:
 	pass
 
@@ -67,22 +66,17 @@ func set_state(new_state: PLAYER_STATES):
 		match current_state:
 			PLAYER_STATES.IDLE: 
 				anim_player.play("idle")
-				print("Quieto")
 			PLAYER_STATES.RUN:
 				anim_player.play("run")
-				print("Corriendo")
 			PLAYER_STATES.JUMP:
 				anim_player.play("jump")
 				SoundsManager.play_sound(audio_player, SoundsManager.PLAYER_SOUND_JUMP)
-				print("Salto")
 			PLAYER_STATES.FALL:
 				anim_player.play("fall")
 				jump_hitbox_collision.disabled = false
-				print("Cayendo")
 			PLAYER_STATES.HURT:
 				anim_player.play("hurt")
 				SoundsManager.play_sound(audio_player, SoundsManager.PLAYER_SOUND_HURT)
-				print("Con dano")
 	else:
 		return
 	
