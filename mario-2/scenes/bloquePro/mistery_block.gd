@@ -23,6 +23,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		tween.set_loops(1)
 		tween.tween_property(sprite,"scale",Vector2(6.0,6.0),0.2)
 		tween.tween_property(sprite,"scale",Vector2(3.0,3.0),0.2)
+		tween.tween_property(sprite, "self_modulate",Color(0.316, 0.316, 0.316, 0.588),0)
+
+
 	else:
 		print("ya me pegaste papu")
 

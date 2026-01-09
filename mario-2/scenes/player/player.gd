@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 enum PLAYER_STATES {IDLE, JUMP, RUN, FALL, HURT}
-const MOVEMENT_SPEED: float = 160.0
+const MOVEMENT_SPEED: float = 500.0
 const JUMP_SPEED: float = -650.0
 const GRAVITY: float = 1000.0
 const MAX_FALL_SPEED: float = GRAVITY * 3
