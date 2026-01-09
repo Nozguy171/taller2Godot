@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8ox847mdcnh4"]
 
+[ext_resource type="Texture2D" uid="uid://dsl16c0npmbap" path="res://assets/backgrounds/space.jpg" id="1_klgdb"]
 [ext_resource type="Script" uid="uid://vef4ny223eyn" path="res://scenes/menu/menu.gd" id="1_r8yej"]
-[ext_resource type="Texture2D" uid="uid://da71uf2ix5np8" path="res://assets/backgrounds/Bosque.jpg" id="2_3y2rt"]
-[ext_resource type="LabelSettings" uid="uid://dslmlp06wx8p7" path="res://fonts/fuentePro.tres" id="2_r8yej"]
-[ext_resource type="LabelSettings" uid="uid://cnec22imkuh7w" path="res://fonts/fuenteProDos.tres" id="3_3y2rt"]
-[ext_resource type="Texture2D" uid="uid://cuu3vrkoml8o0" path="res://assets/buttons/neon_button.png" id="4_t0a87"]
-[ext_resource type="Texture2D" uid="uid://3kosfysfm8ur" path="res://assets/buttons/neon_button_hover.PNG" id="5_qo0fc"]
+[ext_resource type="LabelSettings" uid="uid://bd1lqowiwsx0n" path="res://font_settings/Clash_42_GR.tres" id="2_y1o0p"]
+[ext_resource type="LabelSettings" uid="uid://dbpo5hk5qhnx8" path="res://font_settings/Clash_32_WH.tres" id="3_r8yej"]
+[ext_resource type="Texture2D" uid="uid://d3i7pbschl3oa" path="res://assets/button/neon_button.png" id="4_3y2rt"]
+[ext_resource type="Texture2D" uid="uid://cl1pw5msxpmb" path="res://assets/button/neon_button_hover.PNG" id="5_t0a87"]
 
 [node name="Menu" type="MarginContainer"]
 anchors_preset = 15
@@ -13,101 +13,75 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
 script = ExtResource("1_r8yej")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_3y2rt")
-stretch_mode = 6
+texture = ExtResource("1_klgdb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Howdy´s Fruit"
-label_settings = ExtResource("2_r8yej")
+text = "Alien Attack!"
+label_settings = ExtResource("2_y1o0p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Catch"
-label_settings = ExtResource("3_3y2rt")
+text = "Defiende la Tierra"
+label_settings = ExtResource("3_r8yej")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture_normal = ExtResource("4_3y2rt")
+texture_hover = ExtResource("5_t0a87")
 
-[node name="Start" type="TextureButton" parent="VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_t0a87")
-texture_hover = ExtResource("5_qo0fc")
-
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/Start"]
+[node name="Label" type="Label" parent="VBoxContainer/StartButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -107.5
-offset_top = -21.5
-offset_right = 107.5
-offset_bottom = 21.5
+offset_left = -19.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Empezar"
-label_settings = ExtResource("2_r8yej")
+text = "Start"
+label_settings = ExtResource("3_r8yej")
 
-[node name="Credits" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("4_t0a87")
-texture_hover = ExtResource("5_qo0fc")
-
-[node name="Label" type="Label" parent="VBoxContainer/Credits"]
-layout_mode = 0
-offset_left = 162.0
-offset_top = 78.5
-offset_right = 377.0
-offset_bottom = 121.5
-text = "Creditos"
-label_settings = ExtResource("2_r8yej")
-
-[node name="Finish" type="TextureButton" parent="VBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_t0a87")
-texture_hover = ExtResource("5_qo0fc")
+texture_normal = ExtResource("4_3y2rt")
+texture_hover = ExtResource("5_t0a87")
 
-[node name="Label" type="Label" parent="VBoxContainer/Finish"]
+[node name="Label" type="Label" parent="VBoxContainer/ExitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.5
-offset_top = -21.5
-offset_right = 100.5
-offset_bottom = 21.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Salir"
-label_settings = ExtResource("2_r8yej")
-horizontal_alignment = 1
+text = "Exit"
+label_settings = ExtResource("3_r8yej")
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/Finish" to="." method="_on_finish_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
