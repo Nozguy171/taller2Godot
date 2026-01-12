@@ -1,13 +1,14 @@
 extends MarginContainer
-
+var main_level_scene = preload("res://scenes/test_level/test_level.tscn")
+var credits_scene = preload("res://scenes/credits/credits.tscn")
 var is_open := false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
+	
 	visible = false
 	is_open = false
-
+	_open_menu()
 	# Escuchar señales
 	SignalManager.onPlayerDefeated.connect(_open_menu)
 	SignalManager.onWin.connect(_open_menu)
@@ -29,15 +30,17 @@ func _close_menu() -> void:
 	visible = false
 	get_tree().paused = false
 
-func _on_start_pressed() -> void:
-	print("papu:v")
+
+func _on_start_button_pressed() -> void:
+	_close_menu()
 	pass # Replace with function body.
 
 
-func _on_finish_pressed() -> void:
-	print("salir papu")
+func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+	pass # Replace with function body.
 
 
-func _on_credits_pressed() -> void:
+func _on_credits_button_pressed() -> void:
+	get_tree().change_scene_to_packed(credits_scene)
 	pass # Replace with function body.

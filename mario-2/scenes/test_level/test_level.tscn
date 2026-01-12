@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://imliqey1ua0y" path="res://scenes/fruit/fruit.tscn" id="6_q2iya"]
 [ext_resource type="Texture2D" uid="uid://47umb66vnqlf" path="res://assets/tiles/Terrain (16x16).png" id="7_oeshv"]
 [ext_resource type="PackedScene" uid="uid://cwn7jsplsksf4" path="res://scenes/bloquePro/misteryBlock.tscn" id="8_ninfq"]
-[ext_resource type="PackedScene" uid="uid://cprncnmp0fw07" path="res://scenes/menu/menu.tscn" id="10_eqec7"]
+[ext_resource type="PackedScene" uid="uid://c8ox847mdcnh4" path="res://scenes/menu/menu.tscn" id="10_eqec7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ninfq"]
 texture = ExtResource("7_oeshv")

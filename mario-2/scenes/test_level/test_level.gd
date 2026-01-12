@@ -15,11 +15,13 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("Perdiste we te moriste")
-	player.position.x=0
-	player.position.y=0
+	player.position.x=369
+	player.position.y=101
 	SignalManager.onPlayerDefeated.emit()
 
 func _on_win_flag_area_entered(area: Area2D) -> void:
 	print("Ganaste papupro")
+	player.position.x=369
+	player.position.y=101
 	SoundsManager.play_sound(audio_player, SoundsManager.PLAYER_SOUND_LAND)
 	SignalManager.onWin.emit()

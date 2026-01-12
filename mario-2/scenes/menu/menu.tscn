@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8ox847mdcnh4"]
+[gd_scene load_steps=8 format=3 uid="uid://c8ox847mdcnh4"]
 
-[ext_resource type="Texture2D" uid="uid://dsl16c0npmbap" path="res://assets/backgrounds/space.jpg" id="1_klgdb"]
-[ext_resource type="Script" uid="uid://vef4ny223eyn" path="res://scenes/menu/menu.gd" id="1_r8yej"]
-[ext_resource type="LabelSettings" uid="uid://bd1lqowiwsx0n" path="res://font_settings/Clash_42_GR.tres" id="2_y1o0p"]
+[ext_resource type="Script" uid="uid://jnxux10cbkbd" path="res://scenes/menu/menu.gd" id="1_r8yej"]
+[ext_resource type="Texture2D" uid="uid://dyorogdfosdd2" path="res://assets/backgrounds/TitleMain.png" id="2_r8yej"]
+[ext_resource type="FontFile" uid="uid://bqb1wt7nngo7k" path="res://assets/fonts/Clash_Regular.otf" id="3_3y2rt"]
 [ext_resource type="LabelSettings" uid="uid://dbpo5hk5qhnx8" path="res://font_settings/Clash_32_WH.tres" id="3_r8yej"]
 [ext_resource type="Texture2D" uid="uid://d3i7pbschl3oa" path="res://assets/button/neon_button.png" id="4_3y2rt"]
 [ext_resource type="Texture2D" uid="uid://cl1pw5msxpmb" path="res://assets/button/neon_button_hover.PNG" id="5_t0a87"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t0a87"]
+font = ExtResource("3_3y2rt")
+font_size = 68
+font_color = Color(0.8666667, 0.105882354, 0.28627452, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="MarginContainer"]
 anchors_preset = 15
@@ -17,30 +24,24 @@ script = ExtResource("1_r8yej")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_klgdb")
+texture = ExtResource("2_r8yej")
+expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Alien Attack!"
-label_settings = ExtResource("2_y1o0p")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Defiende la Tierra"
-label_settings = ExtResource("3_r8yej")
-horizontal_alignment = 1
+text = "     FOXY'S 
+     ADVENTURE"
+label_settings = SubResource("LabelSettings_t0a87")
 vertical_alignment = 1
 
 [node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 4
 texture_normal = ExtResource("4_3y2rt")
 texture_hover = ExtResource("5_t0a87")
@@ -61,9 +62,24 @@ grow_vertical = 2
 text = "Start"
 label_settings = ExtResource("3_r8yej")
 
-[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+[node name="CreditsButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+texture_normal = ExtResource("4_3y2rt")
+texture_hover = ExtResource("5_t0a87")
+
+[node name="Label" type="Label" parent="VBoxContainer/CreditsButton"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 81.0
+offset_right = 353.0
+offset_bottom = 114.0
+text = "Credits"
+label_settings = ExtResource("3_r8yej")
+
+[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_horizontal = 8
 texture_normal = ExtResource("4_3y2rt")
 texture_hover = ExtResource("5_t0a87")
 
@@ -84,4 +100,5 @@ text = "Exit"
 label_settings = ExtResource("3_r8yej")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
